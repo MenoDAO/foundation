@@ -1,0 +1,17 @@
+{
+  "name": "Dr. Papi Foundation",
+  "short_name": "DPF",
+  "description": "Community oral health ecosystem for coastal Kenya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F9FC",
+  "theme_color": "#1E2878",
+  "lang": "en-KE",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
