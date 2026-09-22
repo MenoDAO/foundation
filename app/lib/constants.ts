@@ -14,6 +14,20 @@ export const LOCATIONS = {
   clinicalBase: "Mikindani Hospital Dental Unit, Mikindani, Mombasa, Kenya",
 } as const;
 
+/** Cropped, compressed marks in /public/logos. Keep files small — they ship on every page (Foundation) or clinic cards (Mikindani). */
+export const LOGOS = {
+  foundation: {
+    src: "/logos/dr-papi-foundation.webp",
+    width: 319,
+    height: 200,
+  },
+  mikindani: {
+    src: "/logos/mikindani-hospital.webp",
+    width: 379,
+    height: 457,
+  },
+} as const;
+
 /**
  * PLACEHOLDER: insert real WhatsApp number before launch.
  * Do not publish a live wa.me deep-link until a real number is supplied.

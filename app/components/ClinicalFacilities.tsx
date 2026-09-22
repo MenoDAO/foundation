@@ -1,5 +1,6 @@
 "use client";
 
+import { LOGOS } from "../lib/constants";
 import { useLocale } from "../lib/locale";
 import { useFoundationClinics, type FoundationClinic } from "../lib/foundation-site";
 
@@ -24,9 +25,15 @@ export function ClinicalFacilities({ compact = false }: { compact?: boolean }) {
   );
 }
 
+function isMikindaniClinic(clinic: FoundationClinic) {
+  return /mikindani/i.test(clinic.id) || /mikindani/i.test(clinic.name);
+}
+
 function FacilityCard({ clinic }: { clinic: FoundationClinic }) {
   const { t } = useLocale();
   const note = clinic.location || t.common.logoSlotNote;
+  const remoteLogo = clinic.logoUrl;
+  const localMikindani = !remoteLogo && isMikindaniClinic(clinic);
 
   return (
     <div
@@ -36,13 +43,28 @@ function FacilityCard({ clinic }: { clinic: FoundationClinic }) {
           : "border-[#D8DCEB]/60 bg-card"
       }`}
     >
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#D8DCEB]/60 bg-white">
-        {clinic.logoUrl ? (
+      <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-[#D8DCEB]/60 bg-white p-1">
+        {remoteLogo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={clinic.logoUrl}
+            src={remoteLogo}
             alt=""
-            className="h-full w-full object-contain p-1"
+            width={64}
+            height={64}
+            className="h-full w-full object-contain"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : localMikindani ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={LOGOS.mikindani.src}
+            alt=""
+            width={LOGOS.mikindani.width}
+            height={LOGOS.mikindani.height}
+            className="h-full w-full object-contain"
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <span className="text-[10px] font-semibold uppercase tracking-wide text-clinical">

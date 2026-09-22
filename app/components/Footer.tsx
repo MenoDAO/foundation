@@ -15,8 +15,8 @@ export function Footer() {
     <footer className="bg-navy text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
         <div className="md:col-span-1">
-          <div className="[&_span]:!text-white [&_.text-slate]:!text-white/70 [&_.bg-navy]:bg-white/10 [&_.text-white]:text-white">
-            <BrandMark />
+          <div className="[&_.text-slate]:!text-white/70">
+            <BrandMark onDark />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-white/75">{t.footer.tagline}</p>
           <p className="mt-3 text-xs leading-relaxed text-white/60">{t.footer.legalForm}</p>
