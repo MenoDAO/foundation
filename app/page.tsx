@@ -7,7 +7,7 @@ import { Eyebrow, TruthBadge } from "./components/TruthBadge";
 import { Reveal } from "./components/Reveal";
 import { WhatsAppLink } from "./components/WhatsAppLink";
 import { FounderLetter } from "./components/FounderLetter";
-import { HeroScene } from "./components/illustrations/HeroScene";
+import { HeroGalleryCarousel } from "./components/HeroGalleryCarousel";
 import {
   IconAccess,
   IconBarrier,
@@ -57,7 +57,7 @@ export default function HomePage() {
               </WhatsAppLink>
             </p>
           </div>
-          <HeroScene badge={t.common.heroBadge} />
+          <HeroGalleryCarousel badge={t.common.heroBadge} />
         </div>
       </section>
 

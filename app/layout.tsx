@@ -34,9 +34,18 @@ export const metadata: Metadata = {
     title: en.meta.titleDefault,
     description: en.meta.description,
   },
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   manifest: "/manifest.json",
   alternates: { canonical: SITE_URL },
+  other: {
+    "facebook-domain-verification": "al8k6q31l4rj95l3ysivqjpmhbz3lu",
+  },
 };
 
 export const viewport: Viewport = {

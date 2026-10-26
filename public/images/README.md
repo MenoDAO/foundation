@@ -1,5 +1,5 @@
-# Field photography drop zone
+# Field photography
 
-- `hero-field-education.jpg` — authentic outdoor photo of an oral-health educator demonstrating brushing technique to primary-school learners. No clinical trauma or distress imagery.
+- `hero/gallery-01.webp` … `hero/gallery-16.webp` — Tabasamu outreach carousel (cropped from the MenoDAO landing gallery, compressed for the home hero frame).
 
-Until the photograph arrives, the home hero uses an on-brand illustration.
+Replace only with authentic outreach photographs. No clinical trauma or distress imagery.

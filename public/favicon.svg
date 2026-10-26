@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#1E2878"/>
-  <text x="16" y="21" text-anchor="middle" font-family="Outfit, system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff">DP</text>
+  <rect width="32" height="32" rx="8" fill="#ffffff"/>
+  <image href="/logos/dr-papi-foundation.webp" x="2" y="6" width="28" height="18" preserveAspectRatio="xMidYMid meet"/>
 </svg>
