@@ -54,16 +54,19 @@ export default function MenodaoPage() {
           </Reveal>
           <ol className="mt-8 grid gap-5 md:grid-cols-2">
             {c.flow.map((step, i) => (
-              <Reveal key={step.title} delay={i * 80} as="li">
-                <li className="h-full rounded-2xl border border-[#D8DCEB]/60 bg-white p-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-                    {t.common.stepLabel} {i + 1}
-                  </p>
-                  <h3 className="mt-3 text-lg font-semibold text-navy md:text-xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-relaxed text-slate">{step.body}</p>
-                </li>
+              <Reveal
+                key={step.title}
+                delay={i * 80}
+                as="li"
+                className="h-full rounded-2xl border border-[#D8DCEB]/60 bg-white p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                  {t.common.stepLabel} {i + 1}
+                </p>
+                <h3 className="mt-3 text-lg font-semibold text-navy md:text-xl">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-slate">{step.body}</p>
               </Reveal>
             ))}
           </ol>

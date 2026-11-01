@@ -99,6 +99,62 @@ export const en: Content = {
     secondaryCta: "Request a School Visit",
     tertiaryLead: "Oral health inquiry?",
     tertiaryLink: "Chat with our Community Desk on WhatsApp",
+    hero: {
+      location: "Mombasa · Kwale",
+      mediaTitle: "Tabasamu in the field",
+      mediaEyebrow: "Tabasamu field journal",
+      mediaNote:
+        "Documented screenings, community dialogues, and clinical referral pathways across coastal Kenya.",
+      imageCaption: "School & community outreach",
+      photoLabel: "Photograph",
+      mediaSummary: "documented field photographs",
+      standardsLabel: "Safeguards in practice",
+      standards: [
+        {
+          label: "Rule of Two",
+          detail: "Every child screened with an adult present.",
+        },
+        {
+          label: "Licensed operators",
+          detail: "Restorative care at Mikindani Hospital.",
+        },
+        {
+          label: "DPA 2019",
+          detail: "Consent-based data handling.",
+        },
+      ],
+      continuumLabel: "One continuous pathway",
+      continuum: [
+        {
+          step: "01",
+          title: "Classroom",
+          detail: "Oral health literacy",
+          href: `${ROUTES.work}#tabasamu`,
+        },
+        {
+          step: "02",
+          title: "Screening",
+          detail: "Visual triage + fluoride",
+          href: `${ROUTES.work}#tabasamu`,
+        },
+        {
+          step: "03",
+          title: "Dental unit",
+          detail: "Mikindani Hospital",
+          href: `${ROUTES.work}#anchor-clinical-base`,
+        },
+        {
+          step: "04",
+          title: "Care fund",
+          detail: "MenoDAO mutual aid",
+          href: ROUTES.menodao,
+        },
+      ],
+      previous: "Previous photograph",
+      next: "Next photograph",
+      pause: "Pause photo rotation",
+      play: "Play photo rotation",
+    },
     challengeTitle: "Why Oral Health Can No Longer Be An Afterthought",
     challengeCards: [
       {

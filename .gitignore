@@ -15,3 +15,6 @@ npm-debug.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Unprocessed hero originals (keep the repo light). See public/images/README.md.
+/media/hero-source/

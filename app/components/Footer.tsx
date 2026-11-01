@@ -13,8 +13,8 @@ export function Footer() {
 
   return (
     <footer className="bg-navy text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
-        <div className="md:col-span-1">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2 md:px-6 lg:grid-cols-4">
+        <div className="md:col-span-2 lg:col-span-1">
           <div className="[&_.text-slate]:!text-white/70">
             <BrandMark onDark />
           </div>
@@ -66,9 +66,9 @@ function FooterCol({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="min-w-0">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">{title}</p>
-      <div className="mt-4 flex flex-col gap-2 text-sm text-white/80 [&>a:hover]:text-white">
+      <div className="mt-4 flex flex-col gap-2 text-sm text-white/80 [&>a]:break-words [&>a:hover]:text-white">
         {children}
       </div>
     </div>

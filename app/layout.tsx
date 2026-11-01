@@ -1,14 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SiteShell } from "./components/SiteShell";
 import { SITE_URL } from "./lib/constants";
 import { en } from "./content/en";
 
-const outfit = Outfit({
-  subsets: ["latin"],
+// Vendored so production builds do not depend on fonts.googleapis.com being
+// reachable. The file is the Outfit variable font (latin subset, wght 100-900).
+const outfit = localFont({
+  src: "./fonts/outfit-latin-var.woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-outfit",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {

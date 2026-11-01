@@ -5,9 +5,8 @@ import { useLocale } from "./lib/locale";
 import { ROUTES } from "./lib/constants";
 import { Eyebrow, TruthBadge } from "./components/TruthBadge";
 import { Reveal } from "./components/Reveal";
-import { WhatsAppLink } from "./components/WhatsAppLink";
 import { FounderLetter } from "./components/FounderLetter";
-import { HeroGalleryCarousel } from "./components/HeroGalleryCarousel";
+import { HomeHero } from "./components/HomeHero";
 import {
   IconAccess,
   IconBarrier,
@@ -26,40 +25,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-clinical/10 blur-3xl" />
-        <div className="pointer-events-none absolute -right-16 top-40 h-72 w-72 rounded-full bg-gold/15 blur-3xl" />
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
-          <div>
-            <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-navy md:text-5xl">
-              {c.h1}
-            </h1>
-            <p className="mt-5 text-base leading-relaxed text-slate">{c.subhead}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#get-involved"
-                className="inline-flex items-center justify-center rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-ink"
-              >
-                {c.primaryCta}
-              </a>
-              <a
-                href="#pathway-schools"
-                className="inline-flex items-center justify-center rounded-xl border border-navy px-5 py-3 text-sm font-semibold text-navy"
-              >
-                {c.secondaryCta}
-              </a>
-            </div>
-            <p className="mt-5 text-sm text-slate">
-              {c.tertiaryLead}{" "}
-              <WhatsAppLink className="font-medium text-navy underline decoration-[#D8DCEB] underline-offset-4">
-                {c.tertiaryLink}
-              </WhatsAppLink>
-            </p>
-          </div>
-          <HeroGalleryCarousel badge={t.common.heroBadge} />
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="border-t border-[#D8DCEB]/60 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:px-6">

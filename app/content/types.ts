@@ -68,6 +68,23 @@ export interface Content {
     secondaryCta: string;
     tertiaryLead: string;
     tertiaryLink: string;
+    hero: {
+      location: string;
+      mediaTitle: string;
+      mediaEyebrow: string;
+      mediaNote: string;
+      imageCaption: string;
+      photoLabel: string;
+      mediaSummary: string;
+      standardsLabel: string;
+      standards: { label: string; detail: string }[];
+      continuumLabel: string;
+      continuum: { step: string; title: string; detail: string; href: string }[];
+      previous: string;
+      next: string;
+      pause: string;
+      play: string;
+    };
     challengeTitle: string;
     challengeCards: { title: string; body: string }[];
     pillarsTitle: string;

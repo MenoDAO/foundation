@@ -100,6 +100,62 @@ export const sw: Content = {
     secondaryCta: "Omba Ziara Shuleni",
     tertiaryLead: "Swali kuhusu afya ya meno?",
     tertiaryLink: "Ongea na Dawati letu la Jamii kwenye WhatsApp",
+    hero: {
+      location: "Mombasa · Kwale",
+      mediaTitle: "Tabasamu uwandani",
+      mediaEyebrow: "Jarida la uga la Tabasamu",
+      mediaNote:
+        "Uchunguzi ulioandikwa, mijadala ya jamii, na njia za rufaa ya kliniki kote pwani ya Kenya.",
+      imageCaption: "Ufikaji wa shule na jamii",
+      photoLabel: "Picha",
+      mediaSummary: "picha za uga zilizoandikwa",
+      standardsLabel: "Ulinzi kwa vitendo",
+      standards: [
+        {
+          label: "Kanuni ya Wawili",
+          detail: "Kila mtoto huchunguzwa akiwa na mtu mzima.",
+        },
+        {
+          label: "Wataalamu walioidhinishwa",
+          detail: "Huduma ya kurekebisha Mikindani Hospital.",
+        },
+        {
+          label: "DPA 2019",
+          detail: "Utunzaji wa data kwa ridhaa.",
+        },
+      ],
+      continuumLabel: "Njia moja endelevu",
+      continuum: [
+        {
+          step: "01",
+          title: "Darasani",
+          detail: "Elimu ya afya ya meno",
+          href: `${ROUTES.work}#tabasamu`,
+        },
+        {
+          step: "02",
+          title: "Uchunguzi",
+          detail: "Uchunguzi wa kuona + fluoride",
+          href: `${ROUTES.work}#tabasamu`,
+        },
+        {
+          step: "03",
+          title: "Kituo cha meno",
+          detail: "Mikindani Hospital",
+          href: `${ROUTES.work}#anchor-clinical-base`,
+        },
+        {
+          step: "04",
+          title: "Mfuko wa huduma",
+          detail: "Msaada wa MenoDAO",
+          href: ROUTES.menodao,
+        },
+      ],
+      previous: "Picha iliyotangulia",
+      next: "Picha inayofuata",
+      pause: "Simamisha mzunguko wa picha",
+      play: "Anzisha mzunguko wa picha",
+    },
     challengeTitle: "Kwa Nini Afya ya Meno Haiwezi Tena Kuwa Jambo la Pembeni",
     challengeCards: [
       {

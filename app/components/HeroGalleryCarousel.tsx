@@ -1,63 +1,176 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { Content } from "../content";
+import { HERO_IMAGES } from "../content/hero-images";
+import { IconChevronLeft, IconChevronRight } from "./illustrations/HeroIcons";
 
-const HERO_IMAGES = Array.from({ length: 16 }, (_, i) => ({
-  src: `/images/hero/gallery-${String(i + 1).padStart(2, "0")}.webp`,
-  alt: `Tabasamu school and community outreach photograph ${i + 1}`,
-}));
+const CROSSFADE_MS = 500;
 
-export function HeroGalleryCarousel({ badge }: { badge: string }) {
+/** Matches the photo plate's rendered width so the browser fetches only what it needs. */
+const IMAGE_SIZES =
+  "(min-width: 1280px) 700px, (min-width: 1024px) calc((100vw - 96px) * 0.5), (min-width: 768px) calc(100vw - 48px), (min-width: 640px) calc(100vw - 32px), 100vw";
+
+type HeroCopy = Content["home"]["hero"];
+
+export function HeroGalleryCarousel({ labels }: { labels: HeroCopy }) {
+  const total = HERO_IMAGES.length;
   const [index, setIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
+  const touchStart = useRef<number | null>(null);
+  const indexRef = useRef(0);
 
+  const go = useCallback(
+    (direction: number) => {
+      const current = indexRef.current;
+      const next = (current + direction + total) % total;
+      indexRef.current = next;
+      setPreviousIndex(current);
+      setIndex(next);
+    },
+    [total],
+  );
+
+  // Keep the outgoing photo mounted underneath the incoming one so the
+  // crossfade never flashes the plate background.
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % HERO_IMAGES.length);
-    }, 5000);
-    return () => window.clearInterval(timer);
-  }, []);
+    if (previousIndex === null) return;
+    const timer = window.setTimeout(
+      () => setPreviousIndex(null),
+      CROSSFADE_MS,
+    );
+    return () => window.clearTimeout(timer);
+  }, [previousIndex]);
+
+  const current = HERO_IMAGES[index];
+  const upcoming = HERO_IMAGES[(index + 1) % total];
+  const outgoing =
+    previousIndex === null || previousIndex === index
+      ? null
+      : HERO_IMAGES[previousIndex];
+  const showUpcoming =
+    upcoming.src !== current.src && upcoming.src !== outgoing?.src;
 
   return (
-    <figure className="relative overflow-hidden rounded-2xl border border-[#D8DCEB]/60 bg-[#eef4ea]">
-      <div className="relative aspect-[640/520] w-full">
-        {HERO_IMAGES.map((image, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={image.src}
-            src={image.src}
-            alt={image.alt}
-            width={960}
-            height={780}
-            loading={i === 0 ? "eager" : "lazy"}
-            decoding={i === 0 ? "sync" : "async"}
-            fetchPriority={i === 0 ? "high" : "low"}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/35 to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-navy shadow-sm backdrop-blur-sm md:text-sm">
-          {badge}
-        </span>
-        <div
-          className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5"
-          aria-hidden
-        >
-          {HERO_IMAGES.map((image, i) => (
-            <span
-              key={image.src}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? "w-5 bg-white" : "w-1.5 bg-white/55"
-              }`}
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={labels.mediaTitle}
+      onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          go(-1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          go(1);
+        }
+      }}
+      onTouchStart={(event) => {
+        touchStart.current = event.touches[0]?.clientX ?? null;
+      }}
+      onTouchEnd={(event) => {
+        if (touchStart.current === null) return;
+        const delta =
+          (event.changedTouches[0]?.clientX ?? touchStart.current) -
+          touchStart.current;
+        if (Math.abs(delta) > 42) go(delta < 0 ? 1 : -1);
+        touchStart.current = null;
+      }}
+    >
+      <figure className="-mx-4 sm:mx-0">
+        <div className="relative aspect-[16/13] overflow-hidden border-y border-line bg-surface sm:border">
+          {outgoing ? (
+            <Image
+              key={`out-${outgoing.src}`}
+              src={outgoing.src}
+              alt=""
+              aria-hidden
+              fill
+              sizes={IMAGE_SIZES}
+              quality={70}
+              placeholder={outgoing.blurDataURL ? "blur" : "empty"}
+              blurDataURL={outgoing.blurDataURL}
+              className="z-0 object-contain"
             />
-          ))}
+          ) : null}
+
+          <Image
+            key={`in-${current.src}`}
+            src={current.src}
+            alt={current.alt}
+            fill
+            sizes={IMAGE_SIZES}
+            quality={70}
+            priority={index === 0}
+            placeholder={current.blurDataURL ? "blur" : "empty"}
+            blurDataURL={current.blurDataURL}
+            className="hero-photo-fade z-[1] object-contain"
+          />
+
+          {showUpcoming ? (
+            <Image
+              key={`next-${upcoming.src}`}
+              src={upcoming.src}
+              alt=""
+              aria-hidden
+              fill
+              sizes={IMAGE_SIZES}
+              quality={70}
+              placeholder={upcoming.blurDataURL ? "blur" : "empty"}
+              blurDataURL={upcoming.blurDataURL}
+              className="pointer-events-none z-0 object-contain opacity-0"
+            />
+          ) : null}
         </div>
-      </div>
-      <figcaption className="sr-only">
-        Photographs from Tabasamu school and community outreach visits across coastal
-        Kenya.
-      </figcaption>
-    </figure>
+
+        <figcaption className="mt-3 flex flex-col gap-3 px-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:px-0">
+          <div className="min-w-0">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-clinical">
+              {labels.mediaEyebrow}
+            </p>
+            <p className="mt-1 text-[13px] leading-snug text-navy">
+              {labels.imageCaption}
+              <span className="text-slate"> · {labels.location}</span>
+            </p>
+            <span className="sr-only">{labels.mediaNote}</span>
+          </div>
+
+          <div className="flex shrink-0 items-center justify-between gap-4 sm:justify-end">
+            <p className="text-[11px] tabular-nums text-slate">
+              <span className="font-semibold text-navy">
+                {String(index + 1).padStart(2, "0")}
+              </span>{" "}
+              / {String(total).padStart(2, "0")}
+            </p>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                aria-label={labels.previous}
+                title={labels.previous}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-white text-navy transition-colors duration-200 hover:border-navy/40 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              >
+                <IconChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => go(1)}
+                aria-label={labels.next}
+                title={labels.next}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-white text-navy transition-colors duration-200 hover:border-navy/40 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              >
+                <IconChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <p className="sr-only" aria-live="polite" aria-atomic="true">
+        {labels.photoLabel} {index + 1} / {total}
+      </p>
+    </div>
   );
 }

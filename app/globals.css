@@ -72,30 +72,6 @@ body {
   }
 }
 
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.92);
-    opacity: 0.55;
-  }
-  70% {
-    transform: scale(1.12);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.12);
-    opacity: 0;
-  }
-}
-
-@keyframes draw-in {
-  from {
-    stroke-dashoffset: 240;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 .animate-float {
   animation: float-soft 5s ease-in-out infinite;
 }
@@ -111,13 +87,21 @@ body {
   animation: sway 4s ease-in-out infinite;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2.8s ease-out infinite;
+/* ---------------------------------------------------------------------------
+   Home hero — contained photo plate with a quiet crossfade
+   --------------------------------------------------------------------------- */
+
+@keyframes hero-photo-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.hero-line {
-  stroke-dasharray: 240;
-  animation: draw-in 1.6s ease forwards;
+.hero-photo-fade {
+  animation: hero-photo-fade 0.5s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -135,8 +119,12 @@ body {
   .animate-float,
   .animate-brush,
   .animate-sway,
-  .animate-pulse-ring,
-  .hero-line {
+  .hero-photo-fade {
     animation: none;
+  }
+
+  .hero-photo-fade {
+    opacity: 1;
+    transform: none;
   }
 }
