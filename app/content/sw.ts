@@ -155,6 +155,10 @@ export const sw: Content = {
       next: "Picha inayofuata",
       pause: "Simamisha mzunguko wa picha",
       play: "Anzisha mzunguko wa picha",
+      videoLabel: "Filamu ya Foundation",
+      mute: "Nyamazisha video",
+      unmute: "Washa sauti ya video",
+      speed: "Badilisha kasi ya video",
     },
     challengeTitle: "Kwa Nini Afya ya Meno Haiwezi Tena Kuwa Jambo la Pembeni",
     challengeCards: [
@@ -196,6 +200,8 @@ export const sw: Content = {
     letterTitle: "Barua kutoka kwa Dkt. Said Athuman Ruwa",
     letterBody:
       "Sikuanzisha Foundation hii kwa sababu nilitaka kujenga shirika lingine. Niliianzisha kwa sababu ya mvulana wa miaka minane. Nilipokuwa najitolea kama daktari wa meno katika kituo cha umma baada ya kumaliza mafunzo nje ya nchi, mama mmoja aliingia kliniki akiwa amemshika mwanawe mkono. Molar yake ya kwanza ya kudumu—jino lililoundwa kushikilia meno yake maisha yote—lingeliokolewa kwa urekebishaji wa kawaida. Lakini kwa mama yake, matibabu pekee aliyoyajua, na chaguo pekee lililokuwa ndani ya uwezo wake, lilikuwa kung’oa. Jino hilo liling’olewa. Siku hiyo ilibadilisha kabisa jinsi ninavyoona daktari wa meno. Familia katika jamii zetu hazikosi azimio wala upendo kwa watoto wao. Zinakosa taarifa, uchunguzi mapema, na njia zinazofikika za matibabu ya kurekebisha. Kila darasa tunaloingia, kila vocha ya uchunguzi tunayosambaza, na kila dimbwi la akiba ya jamii tunalojaribu na MenoDAO lipo ili familia chache zikabiliane tena na chaguo hilo lisilowezekana.",
+    letterSummary:
+      "Ilianza na mvulana wa miaka minane ambaye molar yake iliyoweza kutibiwa iling'olewa kwa sababu kung'oa ndilo chaguo pekee lililokuwa ndani ya uwezo wake. Tumejenga muendelezo wa uchunguzi darasani, matibabu ya kurekebisha yaliyoidhinishwa, na ufadhili wa pamoja ili familia chache zikabiliane na chaguo hilo.",
     letterName: "Dkt. Said Athuman Ruwa",
     letterRole: "Mwanzilishi na Daktari wa Meno (BDS), Dr. Papi Foundation",
     letterPhotoAlt: "Picha ya Dkt. Said Athuman Ruwa",
