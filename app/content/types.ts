@@ -84,6 +84,10 @@ export interface Content {
       next: string;
       pause: string;
       play: string;
+      videoLabel: string;
+      mute: string;
+      unmute: string;
+      speed: string;
     };
     challengeTitle: string;
     challengeCards: { title: string; body: string }[];
@@ -92,6 +96,7 @@ export interface Content {
     letterEyebrow: string;
     letterTitle: string;
     letterBody: string;
+    letterSummary: string;
     letterName: string;
     letterRole: string;
     letterPhotoAlt: string;

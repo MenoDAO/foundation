@@ -12,6 +12,8 @@ module.exports = {
         "clinical-light": "#4DB4E8",
         gold: "#F0960A",
         "gold-light": "#FFC24B",
+        mint: "#0E9F8A",
+        coral: "#F26D5B",
         muted: "#AAAAAA",
         surface: "#F8F9FC",
         card: "#EFF1F8",

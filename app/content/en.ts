@@ -154,6 +154,10 @@ export const en: Content = {
       next: "Next photograph",
       pause: "Pause photo rotation",
       play: "Play photo rotation",
+      videoLabel: "Foundation film",
+      mute: "Mute video",
+      unmute: "Unmute video",
+      speed: "Change playback speed",
     },
     challengeTitle: "Why Oral Health Can No Longer Be An Afterthought",
     challengeCards: [
@@ -195,6 +199,8 @@ export const en: Content = {
     letterTitle: "A Letter from Dr. Said Athuman Ruwa",
     letterBody:
       "I didn't start this Foundation because I wanted to build another organization. I started it because of an eight-year-old boy. While volunteering as a dentist in a public facility after completing my training abroad, a mother walked into the clinic holding her son's hand. His first permanent molar—the tooth designed to anchor his dentition for life—could have been saved through a routine restoration. But to his mother, the only treatment she had ever known, and the only option within financial reach, was extraction. That tooth was removed. That day fundamentally changed how I view clinical dentistry. Families in our communities do not lack resolve or love for their children. They lack information, early screening, and accessible pathways to restorative care. Every classroom we enter, every screening voucher we distribute, and every community savings pool we test with MenoDAO exists to ensure fewer families ever face that impossible choice again.",
+    letterSummary:
+      "It began with an eight-year-old boy whose treatable molar was lost because extraction was the only affordable option. We built a continuum of classroom screening, licensed restorative care, and community financing so fewer families face that choice.",
     letterName: "Dr. Said Athuman Ruwa",
     letterRole: "Founder & Dental Surgeon (BDS), Dr. Papi Foundation",
     letterPhotoAlt: "Portrait of Dr. Said Athuman Ruwa",
