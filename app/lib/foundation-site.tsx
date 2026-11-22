@@ -24,6 +24,8 @@ export type FoundationImpact = {
   registeredMembers: number;
   contributingMembers: number;
   approvedFacilities: number;
+  campsConducted: number;
+  peopleServed: number;
   counties: number;
 };
 
@@ -153,6 +155,8 @@ export function FoundationSiteProvider({ children }: { children: ReactNode }) {
                 registeredMembers: 0,
                 contributingMembers: 0,
                 approvedFacilities: 1,
+                campsConducted: 0,
+                peopleServed: 0,
                 counties: 2,
               } satisfies FoundationImpact),
             hero: { ...FALLBACK_HERO, ...(payload.hero || {}) },

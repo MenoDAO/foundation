@@ -16,6 +16,8 @@ export default function ImpactPage() {
     impact?.registeredMembers,
     impact?.contributingMembers,
     impact?.approvedFacilities,
+    impact?.campsConducted,
+    impact?.peopleServed,
     impact?.counties,
   ];
 
@@ -24,7 +26,7 @@ export default function ImpactPage() {
       <PageHero eyebrow={c.eyebrow} title={c.h1} subhead={c.subhead} />
 
       <section className="border-b border-[#D8DCEB]/60 bg-navy text-white">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-2 lg:grid-cols-4 md:px-6">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3 md:px-6">
           {c.strip.map((item, i) => (
             <div key={item.label}>
               <p className="text-4xl font-bold tracking-tight text-gold">
@@ -39,7 +41,7 @@ export default function ImpactPage() {
 
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-14 md:px-6">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {c.cards.map((card, i) => (
               <Reveal key={card.title} delay={i * 70} as="article">
                 <article className="flex h-full flex-col rounded-2xl border border-[#D8DCEB]/60 bg-card p-5">

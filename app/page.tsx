@@ -38,6 +38,8 @@ export default function HomePage() {
     site?.impact.registeredMembers,
     site?.impact.contributingMembers,
     site?.impact.approvedFacilities,
+    site?.impact.campsConducted,
+    site?.impact.peopleServed,
     site?.impact.counties,
   ];
 
@@ -139,12 +141,9 @@ export default function HomePage() {
 
       <section className="bg-navy py-12 text-white md:py-14" aria-label={t.impact.eyebrow}>
         <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {t.impact.strip.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={index === 0 ? "" : "border-t border-white/15 pt-6 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0"}
-              >
+              <div key={stat.label} className="border-t border-white/15 pt-6">
                 <p className="text-3xl font-semibold tabular-nums text-gold-light md:text-4xl">
                   {impactValues[index] ?? "—"}
                 </p>
