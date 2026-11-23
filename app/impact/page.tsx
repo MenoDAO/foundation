@@ -7,6 +7,7 @@ import { useFoundationSite } from "../lib/foundation-site";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { Eyebrow, TruthBadge } from "../components/TruthBadge";
+import { AnimatedStat } from "../components/AnimatedStat";
 
 export default function ImpactPage() {
   const { t } = useLocale();
@@ -30,7 +31,7 @@ export default function ImpactPage() {
           {c.strip.map((item, i) => (
             <div key={item.label}>
               <p className="text-4xl font-bold tracking-tight text-gold">
-                {formatStat(live[i], item.stat)}
+                <AnimatedStat value={live[i]} fallback={item.stat} />
               </p>
               <p className="mt-2 text-sm font-medium text-white">{item.label}</p>
               <p className="mt-1 text-xs text-white/65">{item.caption}</p>
@@ -49,7 +50,7 @@ export default function ImpactPage() {
                     {card.title}
                   </p>
                   <p className="mt-3 text-4xl font-bold tracking-tight text-navy">
-                    {formatStat(live[i], card.stat)}
+                    <AnimatedStat value={live[i]} fallback={card.stat} />
                     {card.statSuffix ? (
                       <span className="ml-1 text-lg font-semibold">{card.statSuffix}</span>
                     ) : null}
@@ -125,6 +126,3 @@ export default function ImpactPage() {
   );
 }
 
-function formatStat(value: number | undefined, fallback: string) {
-  return typeof value === "number" ? String(value) : fallback;
-}

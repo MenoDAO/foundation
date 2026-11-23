@@ -11,6 +11,7 @@ import { FounderLetter } from "./components/FounderLetter";
 import { HomeHero } from "./components/HomeHero";
 import { MediaRibbon } from "./components/MediaRibbon";
 import { IconArrowUpRight } from "./components/illustrations/HeroIcons";
+import { AnimatedStat } from "./components/AnimatedStat";
 import {
   IconAccess,
   IconBarrier,
@@ -145,7 +146,7 @@ export default function HomePage() {
             {t.impact.strip.map((stat, index) => (
               <div key={stat.label} className="border-t border-white/15 pt-6">
                 <p className="text-3xl font-semibold tabular-nums text-gold-light md:text-4xl">
-                  {impactValues[index] ?? "—"}
+                  <AnimatedStat value={impactValues[index]} />
                 </p>
                 <p className="mt-1 text-sm font-medium text-white">{stat.label}</p>
                 <p className="mt-1 text-[11px] text-white/60">{stat.caption}</p>
