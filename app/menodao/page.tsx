@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLocale } from "../lib/locale";
-import { ROUTES } from "../lib/constants";
+import { MENODAO_APP_URL, ROUTES } from "../lib/constants";
 import { PageHero } from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { TruthBadge } from "../components/TruthBadge";
@@ -90,9 +90,17 @@ export default function MenodaoPage() {
               ))}
             </ul>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a
+                href={MENODAO_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white hover:bg-navy/90"
+              >
+                {c.tryAppCta} ↗
+              </a>
               <Link
                 href={ROUTES.impact}
-                className="inline-flex items-center justify-center rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-ink"
+                className="inline-flex items-center justify-center rounded-xl border border-navy/25 px-5 py-3 text-sm font-semibold text-navy"
               >
                 {c.pilotCta}
               </Link>
@@ -100,6 +108,7 @@ export default function MenodaoPage() {
                 {c.deskCta}
               </WhatsAppLink>
             </div>
+            <p className="mt-3 text-xs text-slate">{c.tryAppCaption}</p>
           </Reveal>
         </div>
       </section>

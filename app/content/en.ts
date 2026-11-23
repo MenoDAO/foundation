@@ -353,6 +353,8 @@ export const en: Content = {
     ],
     pilotCta: "Read the audited baseline",
     deskCta: "Community Desk on WhatsApp",
+    tryAppCta: "Try the MenoDAO app",
+    tryAppCaption: "Opens the live app in a new tab.",
   },
   impact: {
     eyebrow: "Audited Baseline (2026)",

@@ -354,6 +354,8 @@ export const sw: Content = {
     ],
     pilotCta: "Soma msingi uliokaguliwa",
     deskCta: "Dawati la Jamii kwenye WhatsApp",
+    tryAppCta: "Jaribu programu ya MenoDAO",
+    tryAppCaption: "Inafungua programu halisi kwenye kichupo kipya.",
   },
   impact: {
     eyebrow: "Msingi Uliokaguliwa (2026)",

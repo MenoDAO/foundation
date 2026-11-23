@@ -7,6 +7,10 @@ export const EMAILS = {
 
 export const SITE_URL = "https://drpapifoundation.org";
 
+/** Production app, not the marketing landing page — this CTA is for trying the product. */
+export const MENODAO_APP_URL = "https://app.menodao.org";
+export const MENODAO_LANDING_URL = "https://menodao.org";
+
 export const HOURS = "Mon–Fri, 8:30 AM–5:00 PM EAT";
 
 export const LOCATIONS = {
