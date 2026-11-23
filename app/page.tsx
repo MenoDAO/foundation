@@ -36,11 +36,11 @@ export default function HomePage() {
 
   const impactValues = [
     site?.impact.registeredMembers,
-    site?.impact.contributingMembers,
-    site?.impact.approvedFacilities,
+    site?.impact.peopleReached,
+    site?.impact.peopleScreened,
+    site?.impact.treatmentsDone,
+    site?.impact.totalReferrals,
     site?.impact.campsConducted,
-    site?.impact.peopleServed,
-    site?.impact.counties,
   ];
 
   return (

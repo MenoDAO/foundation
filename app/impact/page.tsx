@@ -14,11 +14,11 @@ export default function ImpactPage() {
   const impact = useFoundationSite()?.impact;
   const live = [
     impact?.registeredMembers,
-    impact?.contributingMembers,
-    impact?.approvedFacilities,
+    impact?.peopleReached,
+    impact?.peopleScreened,
+    impact?.treatmentsDone,
+    impact?.totalReferrals,
     impact?.campsConducted,
-    impact?.peopleServed,
-    impact?.counties,
   ];
 
   return (

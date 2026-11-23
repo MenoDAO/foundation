@@ -22,11 +22,11 @@ export type FoundationClinic = {
 
 export type FoundationImpact = {
   registeredMembers: number;
-  contributingMembers: number;
-  approvedFacilities: number;
+  peopleReached: number;
+  peopleScreened: number;
+  treatmentsDone: number;
+  totalReferrals: number;
   campsConducted: number;
-  peopleServed: number;
-  counties: number;
 };
 
 export type FoundationPlaybackRate = 0.5 | 0.75 | 1 | 1.25 | 1.5 | 2;
@@ -153,11 +153,11 @@ export function FoundationSiteProvider({ children }: { children: ReactNode }) {
               payload.impact ??
               ({
                 registeredMembers: 0,
-                contributingMembers: 0,
-                approvedFacilities: 1,
+                peopleReached: 0,
+                peopleScreened: 0,
+                treatmentsDone: 0,
+                totalReferrals: 0,
                 campsConducted: 0,
-                peopleServed: 0,
-                counties: 2,
               } satisfies FoundationImpact),
             hero: { ...FALLBACK_HERO, ...(payload.hero || {}) },
             founderVideo: {
