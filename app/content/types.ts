@@ -164,6 +164,8 @@ export interface Content {
     safeguards: string[];
     pilotCta: string;
     deskCta: string;
+    tryAppCta: string;
+    tryAppCaption: string;
   };
   impact: {
     eyebrow: string;
