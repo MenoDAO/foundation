@@ -38,9 +38,11 @@ export const LOGOS = {
  */
 export const WHATSAPP_NUMBER: string | null = null;
 
-export function getFoundationApiUrl(): string | null {
+const DEFAULT_FOUNDATION_API_URL = "https://api.menodao.org";
+
+export function getFoundationApiUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_API_URL?.trim().replace(/\/$/, "");
-  return fromEnv || null;
+  return fromEnv || DEFAULT_FOUNDATION_API_URL;
 }
 
 export const ROUTES = {
